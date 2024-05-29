@@ -1,0 +1,6 @@
+Package: gitlab-menu-changer
+Version: 1.0-1
+Architecture: all
+Maintainer: Aborche <aborche.aborche@gmail.com>
+Description: Patch gitlab Your Work menu
+ Evented edit /opt/gitlab/embedded/service/gitlab-rails/lib/sidebars/your_work/panel.rb after install or upgrade

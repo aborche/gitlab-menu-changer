@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -eu
+
+if [ "$1" = "triggered" ]; then
+  if [ "$2" = "/opt/gitlab/embedded/service/gitlab-rails/lib/sidebars/your_work/panel.rb" ]; then
+    logger "Fix gitlab 'Your Work' menu"
+    line="return unless context.current_user"
+    addline="add_menu(::Sidebars::MenuItem.new(title: _('Helper Menu'), link: '/-/helper', sprite_icon: 'text-description', active_routes: {}, super_sidebar_parent: ::Sidebars::YourWork, item_id: :helper))"
+    sed -i -e "/$line$/a"'\\n'"\t$addline" "$2"
+  fi
+fi
